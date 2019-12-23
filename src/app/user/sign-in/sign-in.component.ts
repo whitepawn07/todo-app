@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { ApiService } from '../../api.service';
 
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -9,7 +10,7 @@ import { ApiService } from '../../api.service';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private router: Router, private api:ApiService ) { }
+  constructor(private router: Router, private api: ApiService ) { }
 
   email: string;
   password: string;
@@ -18,14 +19,12 @@ export class SignInComponent implements OnInit {
   }
 
   login() : void {
-    // this.api.login({
+    this.api.login({
+      email:this.email,
+      password:this.password
+    }).subscribe( response => {
 
-    // })
-    // this.api
-    // .addSmartphone(this.postdata)
-    // .subscribe(resp => {
-    //   return this.spresp.push(resp);
-    // });
+    })
   }
 
 }
